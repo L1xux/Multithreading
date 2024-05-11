@@ -67,7 +67,6 @@ void *write_into_file(void *arg) {
     char input_text[64];
     
     while(1) {        
-        
         pthread_setcancelstate(thread->cancel_state, NULL);
         pthread_setcanceltype(thread->cancel_type, NULL);
 
@@ -79,8 +78,7 @@ void *write_into_file(void *arg) {
         cnt++;
         
         sleep(1);
-        pthread_testcancel(); 
-        
+        pthread_testcancel();         
     }    
 
     pthread_cleanup_pop(0); 
@@ -115,12 +113,12 @@ int main(int argc, char **argv){
 
         switch(option){
             case 0:
-                pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-                pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
+                threads[thread_num]->cancel_state = PTHREAD_CANCEL_ENABLE;
+                threads[thread_num]->cancel_type = PTHREAD_CANCEL_ASYNCHRONOUS;
                 break;
             case 1:
-                pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-                pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, NULL);
+                threads[thread_num]->cancel_state = PTHREAD_CANCEL_ENABLE;
+                threads[thread_num]->cancel_type = PTHREAD_CANCEL_DEFERRED;
                 break;
             default:
                 printf("Invalid Operation ID\n");
