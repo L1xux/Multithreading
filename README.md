@@ -10,7 +10,7 @@ The main objective of this project is to reinforce my understanding of multithre
 
 
 ## 🚀 Concepts to be completed!
-- [ ] Thread Cancellation
+- [x] Thread Cancellation 
 - [ ] Listener Threads
 - [ ] Mutex
 - [ ] Deadlocks
