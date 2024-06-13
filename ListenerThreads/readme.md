@@ -1,3 +1,7 @@
+## Notice
+In this program, I didn't make my own udp server but i refer to the code of my instructor. However, rest of them related to multithread are made by me.
+
+
 ## How to Compile and Run the Program
 
 To compile and run the program, follow these steps:
