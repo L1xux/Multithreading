@@ -23,18 +23,21 @@
 
 
 pthread_mutex_t mutex;
+
+int sum = 0;
 int nums[] = { 1, 2, 3, 4, 5 };
 
 void print_nums() {
     int size = sizeof(nums) / sizeof(nums[0]);
-    
-    
+        
     pthread_mutex_lock(&mutex); 
     printf("nums = ");
     for(int i = 0 ; i < size ; i++){
         printf("%d ", nums[i]);
     }
     printf("\n");
+
+    printf("sum = %d\n", sum);
     pthread_mutex_unlock(&mutex); 
 }
 
@@ -42,9 +45,9 @@ static void* thread_cb_sum(){
     int size = sizeof(nums) / sizeof(nums[0]);
 
     while(1){
-        int sum = 0;
-
         pthread_mutex_lock(&mutex); 
+        
+        sum = 0;
         for(int i = 0 ; i < size ; i++){
             sum+=nums[i];
         }
@@ -85,7 +88,6 @@ int main(int argc, char** argv){
         printf("Error occurred for sum\n");
         return 0;
     }
-
 
     int rc_swap = pthread_create(&t_swap, NULL, thread_cb_swap, NULL);
     if(rc_swap != 0){

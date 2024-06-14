@@ -22,8 +22,8 @@
 #include <errno.h>
 #include <assert.h>
 
+int sum = 0;
 int nums[] = { 1, 2, 3, 4, 5 };
-
 
 void print_nums() {
     int size = sizeof(nums) / sizeof(nums[0]);
@@ -31,15 +31,16 @@ void print_nums() {
     for(int i = 0 ; i < size ; i++){
         printf("%d ", nums[i]);
     }
-
+    
     printf("\n");
+    printf("sum = %d\n", sum);
 }
 
 static void* thread_cb_sum(){
     int size = sizeof(nums) / sizeof(nums[0]);
 
     while(1){
-        int sum = 0;
+        sum = 0;
         for(int i = 0 ; i < size ; i++){
             sum+=nums[i];
         }
