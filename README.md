@@ -12,7 +12,7 @@ The main objective of this project is to reinforce my understanding of multithre
 ## 🚀 Concepts to be completed!
 - [x] Thread Cancellation 
 - [x] Listener Threads
-- [ ] Mutex
+- [x] Mutex
 - [ ] Deadlocks
 - [ ] Condition Variables
 - [ ] Dining Philosopher Problem
